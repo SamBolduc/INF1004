@@ -1,4 +1,4 @@
-package com.uqtr.devoir1.error;
+package com.uqtr.devoir1.errors;
 
 import org.beryx.textio.InputReader;
 

@@ -1,9 +1,12 @@
-package com.uqtr.devoir1.model;
+package com.uqtr.devoir1.models;
 
+import com.uqtr.devoir1.models.persist.TrajetModel;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chauffeur {
+public class Chauffeur implements Serializable {
     private String identification;
     private String nom;
     private String prenom;
@@ -11,11 +14,11 @@ public class Chauffeur {
     private String adresse;
     private List<Trajet> trajets;
 
-    public Chauffeur(String nom, String prenom, String anneeEmbauche, String adresse) {
-        this.identification = nom.substring(0, Math.min(3, nom.length())) + prenom.charAt(0) + anneeEmbauche.substring(2);
+    public Chauffeur(String nom, String prenom, int anneeEmbauche, String adresse) {
+        this.identification = nom.substring(0, Math.min(3, nom.length())) + prenom.charAt(0) + String.valueOf(anneeEmbauche).substring(2);
         this.nom = nom;
         this.prenom = prenom;
-        this.anneeEmbauche = Integer.parseInt(anneeEmbauche);
+        this.anneeEmbauche = anneeEmbauche;
         this.adresse = adresse;
         this.trajets = new ArrayList<>();
     }
@@ -62,5 +65,22 @@ public class Chauffeur {
 
     public List<Trajet> getTrajets() {
         return trajets;
+    }
+
+    public void addTrajet(Trajet trajet) {
+        this.trajets.add(trajet);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder("--Chauffeur--");
+        str.append("\nIdentification : ").append(this.identification);
+        str.append("\nNom : ").append(this.nom);
+        str.append("\nPrenom : ").append(this.prenom);
+        str.append("\nAnnée d'embauche : ").append(this.anneeEmbauche);
+        str.append("\nAdresse : ").append(this.adresse);
+        str.append("\nTragets : ");
+        this.trajets.forEach(t -> str.append(t.toString()));
+        return str.toString();
     }
 }

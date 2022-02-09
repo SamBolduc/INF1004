@@ -1,6 +1,6 @@
 package com.uqtr.devoir1;
 
-import com.uqtr.devoir1.menu.MainMenu;
+import com.uqtr.devoir1.menus.MainMenu;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 import org.beryx.textio.TextTerminal;

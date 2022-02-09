@@ -1,4 +1,4 @@
-package com.uqtr.devoir1.menu;
+package com.uqtr.devoir1.menus;
 
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextTerminal;

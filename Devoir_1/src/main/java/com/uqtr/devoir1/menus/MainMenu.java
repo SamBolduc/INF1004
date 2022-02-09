@@ -1,7 +1,7 @@
-package com.uqtr.devoir1.menu;
+package com.uqtr.devoir1.menus;
 
-import com.uqtr.devoir1.action.LeaveAction;
-import com.uqtr.devoir1.error.InvalidOptionError;
+import com.uqtr.devoir1.actions.LeaveAction;
+import com.uqtr.devoir1.errors.InvalidOptionError;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextTerminal;
 

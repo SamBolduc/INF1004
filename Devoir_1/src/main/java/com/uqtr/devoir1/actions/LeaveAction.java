@@ -1,6 +1,6 @@
-package com.uqtr.devoir1.action;
+package com.uqtr.devoir1.actions;
 
-import com.uqtr.devoir1.menu.Menu;
+import com.uqtr.devoir1.menus.Menu;
 
 public class LeaveAction extends Action {
     public LeaveAction(Menu menu) {

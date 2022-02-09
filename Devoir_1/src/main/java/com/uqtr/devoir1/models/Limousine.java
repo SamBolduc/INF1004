@@ -1,6 +1,8 @@
-package com.uqtr.devoir1.model;
+package com.uqtr.devoir1.models;
 
-public class Limousine {
+import java.io.Serializable;
+
+public class Limousine implements Serializable {
     private String immatriculation;
     private int capaciteReservoir;
     private String couleur;
@@ -33,5 +35,14 @@ public class Limousine {
 
     public void setCouleur(String couleur) {
         this.couleur = couleur;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder("--Limousine--");
+        str.append("\nImmatriculation : ").append(this.immatriculation);
+        str.append("\nCapacité du réservoir : ").append(this.capaciteReservoir);
+        str.append("\nCouleur : ").append(this.couleur);
+        return str.toString();
     }
 }
