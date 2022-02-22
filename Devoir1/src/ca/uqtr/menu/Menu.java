@@ -24,6 +24,7 @@ public class Menu {
         for (Option option : options) {
             System.out.println(option);
         }
+        System.out.println("");
     }
 
     public void displayAndPrompt() {
