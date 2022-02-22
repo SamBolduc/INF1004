@@ -1,0 +1,15 @@
+System.out.println("Veuillez entrer l'identification du chauffeur désiré :");
+Scanner scanner = new Scanner(System.in);
+String identification = scanner.nextLine();
+
+try {
+    DataManager manager = DataManager.getInstance();
+    Set<Limousine> limousines = new HashSet<>(); // Un Set prend soin de ne pas avoir de doublons
+    manager.getAutoDeLuxe().getChauffeurs().stream()
+            .filter(chauffeur -> chauffeur.getIdentification().equalsIgnoreCase(identification))
+            .forEach(chauffeur -> chauffeur.getTrajets()
+                    .forEach(trajet -> limousines.add(trajet.getLimousine())));
+    limousines.forEach(System.out::println);
+} catch (NoPersistentDataException e) {
+    System.err.println(e.getMessage());
+}
