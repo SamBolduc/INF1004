@@ -3,7 +3,6 @@ package ca.uqtr.menu.tasks;
 import ca.uqtr.DataManager;
 import ca.uqtr.exceptions.NoPersistentDataException;
 import ca.uqtr.models.Limousine;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -18,6 +17,5 @@ public class FindLimousinesByChauffeur extends AbstractTask {
         //
         //        limousine.toString()
         //        Set<Limousine> limousines = new HashSet<>();
-        throw new NotImplementedException();
     }
 }
