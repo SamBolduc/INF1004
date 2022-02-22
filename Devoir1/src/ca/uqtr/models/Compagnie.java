@@ -13,10 +13,6 @@ public class Compagnie {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public List<Chauffeur> getChauffeurs() {
         return chauffeurs;
     }

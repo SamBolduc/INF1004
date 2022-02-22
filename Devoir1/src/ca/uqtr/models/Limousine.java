@@ -1,9 +1,10 @@
 package ca.uqtr.models;
 
 public class Limousine {
-    private String immatriculation;
-    private int capaciteReservoir;
-    private String couleur;
+
+    private final String immatriculation;
+    private final int capaciteReservoir;
+    private final String couleur;
 
     public Limousine(String immatriculation, int capaciteReservoir, String couleur) {
         this.immatriculation = immatriculation;
@@ -13,26 +14,6 @@ public class Limousine {
 
     public String getImmatriculation() {
         return immatriculation;
-    }
-
-    public void setImmatriculation(String immatriculation) {
-        this.immatriculation = immatriculation;
-    }
-
-    public int getCapaciteReservoir() {
-        return capaciteReservoir;
-    }
-
-    public void setCapaciteReservoir(int capaciteReservoir) {
-        this.capaciteReservoir = capaciteReservoir;
-    }
-
-    public String getCouleur() {
-        return couleur;
-    }
-
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
     }
 
     @Override

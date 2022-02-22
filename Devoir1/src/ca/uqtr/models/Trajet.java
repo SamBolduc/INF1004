@@ -1,58 +1,18 @@
 package ca.uqtr.models;
 
-
 public class Trajet {
-    private String villeDepart;
-    private String villeArrivee;
-    private int kmDepart;
-    private int kmArrivee;
-    private Limousine limousine;
+
+    private final String villeDepart;
+    private final String villeArrivee;
+    private final int kmDepart;
+    private final int kmArrivee;
+    private final Limousine limousine;
 
     public Trajet(String villeDepart, String villeArrivee, int kmDepart, int kmArrivee, Limousine limousine) {
         this.villeDepart = villeDepart;
         this.villeArrivee = villeArrivee;
         this.kmDepart = kmDepart;
         this.kmArrivee = kmArrivee;
-        this.limousine = limousine;
-    }
-
-    public String getVilleDepart() {
-        return villeDepart;
-    }
-
-    public void setVilleDepart(String villeDepart) {
-        this.villeDepart = villeDepart;
-    }
-
-    public String getVilleArrivee() {
-        return villeArrivee;
-    }
-
-    public void setVilleArrivee(String villeArrivee) {
-        this.villeArrivee = villeArrivee;
-    }
-
-    public int getKmDepart() {
-        return kmDepart;
-    }
-
-    public void setKmDepart(int kmDepart) {
-        this.kmDepart = kmDepart;
-    }
-
-    public int getKmArrivee() {
-        return kmArrivee;
-    }
-
-    public void setKmArrivee(int kmArrivee) {
-        this.kmArrivee = kmArrivee;
-    }
-
-    public Limousine getLimousine() {
-        return limousine;
-    }
-
-    public void setLimousine(Limousine limousine) {
         this.limousine = limousine;
     }
 

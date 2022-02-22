@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Chauffeur {
-    private String identification;
-    private String nom;
-    private String prenom;
-    private int anneeEmbauche;
-    private String adresse;
-    private List<Trajet> trajets;
+    private final String identification;
+    private final String nom;
+    private final String prenom;
+    private final int anneeEmbauche;
+    private final String adresse;
+    private final List<Trajet> trajets;
 
     public Chauffeur(String nom, String prenom, int anneeEmbauche, String adresse) {
         nom = nom.replace("'", "");
@@ -30,46 +30,6 @@ public class Chauffeur {
 
     public String getIdentification() {
         return identification;
-    }
-
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public int getAnneeEmbauche() {
-        return anneeEmbauche;
-    }
-
-    public void setAnneeEmbauche(int anneeEmbauche) {
-        this.anneeEmbauche = anneeEmbauche;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public List<Trajet> getTrajets() {
-        return trajets;
     }
 
     public void addTrajet(Trajet trajet) {
