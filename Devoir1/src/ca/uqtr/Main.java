@@ -23,6 +23,11 @@ public class Main {
     }
 
     private static void loadFiles(String[] args) {
+        if (args.length != 3) {
+            System.err.println("Veuillez spécifier les chemins d'accès vers les 3 fichiers");
+            System.exit(-1);
+        }
+
         try {
             DataManager manager = new DataManager(args[0], args[1], args[2]);
         } catch (FileNotFoundException e) {
