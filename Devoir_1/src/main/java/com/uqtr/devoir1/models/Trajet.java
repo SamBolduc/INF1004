@@ -1,8 +1,8 @@
 package com.uqtr.devoir1.models;
 
-import java.io.Serializable;
+import com.uqtr.devoir1.models.persist.Limousine;
 
-public class Trajet implements Serializable {
+public class Trajet {
     private String villeDepart;
     private String villeArrivee;
     private int kmDepart;

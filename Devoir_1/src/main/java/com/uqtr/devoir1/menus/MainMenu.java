@@ -1,7 +1,7 @@
 package com.uqtr.devoir1.menus;
 
-import com.uqtr.devoir1.actions.LeaveAction;
 import com.uqtr.devoir1.errors.InvalidOptionError;
+import com.uqtr.devoir1.actions.LeaveAction;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextTerminal;
 
@@ -18,6 +18,7 @@ public class MainMenu extends Menu {
     public void show() {
         List<String> menu = new ArrayList<String>();
         menu.add("0 - Quitter.");
+        menu.add("1 - Trouver toutes les limouses d'un chauffeur.");
         menu.add("1 - Autre option.");
         menu.add("");
         menu.add("Veuillez choisir une option:");

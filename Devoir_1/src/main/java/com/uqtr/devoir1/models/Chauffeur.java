@@ -1,12 +1,9 @@
 package com.uqtr.devoir1.models;
 
-import com.uqtr.devoir1.models.persist.TrajetModel;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chauffeur implements Serializable {
+public class Chauffeur {
     private String identification;
     private String nom;
     private String prenom;

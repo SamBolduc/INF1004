@@ -40,9 +40,4 @@ public class ChauffeurModel {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-
-    @Override
-    public String toString() {
-        return "Nom : " + nom + "\nPrenom : " + prenom + "\nanneeEmbauche : " + anneeEmbauche + "\nadresse : " + adresse;
-    }
 }

@@ -4,8 +4,9 @@ import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.uqtr.devoir1.errors.NoPersistentDataException;
 import com.uqtr.devoir1.models.Chauffeur;
-import com.uqtr.devoir1.models.Limousine;
+import com.uqtr.devoir1.models.Compagnie;
 import com.uqtr.devoir1.models.Trajet;
+import com.uqtr.devoir1.models.persist.Limousine;
 import com.uqtr.devoir1.models.persist.ChauffeurModel;
 import com.uqtr.devoir1.models.persist.LimousineModel;
 import com.uqtr.devoir1.models.persist.TrajetModel;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 public class DataManager {
 
+    private final Compagnie autoDeLuxe;
     private List<Chauffeur> chauffeurs;
     private List<Limousine> limousines;
     private List<Trajet> trajets;
@@ -31,6 +33,8 @@ public class DataManager {
     }
 
     public DataManager(String chauffeursPath, String limousinesPath, String trajetsPath) throws FileNotFoundException {
+        this.autoDeLuxe = new Compagnie("AutodeLuxe");
+
         this.loadLimousines(limousinesPath);
         this.loadChauffeurs(chauffeursPath);
         this.loadTrajets(trajetsPath);
@@ -53,6 +57,8 @@ public class DataManager {
             Chauffeur chauffeur = new Chauffeur(model.getNom(), model.getPrenom(), model.getAnneeEmbauche(), model.getAdresse());
             this.chauffeurs.add(chauffeur);
         }
+
+        this.autoDeLuxe.setChauffeurs(this.chauffeurs);
     }
 
     // On retire les warnings, dans ce cas seulement, car on utilise un traitement dynamique de conversion de données brutes vers une classe X.
@@ -70,6 +76,8 @@ public class DataManager {
             Limousine limousine = new Limousine(model.getImmatriculation(), model.getCapaciteReservoir(), model.getCouleur());
             this.limousines.add(limousine);
         }
+
+        this.autoDeLuxe.setLimousines(this.limousines);
     }
 
     // On retire les warnings, dans ce cas seulement, car on utilise un traitement dynamique de conversion de données brutes vers une classe X.

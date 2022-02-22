@@ -1,8 +1,6 @@
-package com.uqtr.devoir1.models;
+package com.uqtr.devoir1.models.persist;
 
-import java.io.Serializable;
-
-public class Limousine implements Serializable {
+public class Limousine {
     private String immatriculation;
     private int capaciteReservoir;
     private String couleur;
