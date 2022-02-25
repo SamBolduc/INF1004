@@ -22,6 +22,7 @@ public class Limousine {
         str.append("\nImmatriculation : ").append(this.immatriculation);
         str.append("\nCapacité du réservoir : ").append(this.capaciteReservoir);
         str.append("\nCouleur : ").append(this.couleur);
+        str.append("\n");
         return str.toString();
     }
 }

@@ -31,6 +31,10 @@ public class Chauffeur {
     public String getIdentification() {
         return identification;
     }
+    
+    public List<Trajet> getTrajets() {
+        return trajets;
+    }
 
     public void addTrajet(Trajet trajet) {
         this.trajets.add(trajet);

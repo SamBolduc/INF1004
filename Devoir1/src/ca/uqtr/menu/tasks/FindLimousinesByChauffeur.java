@@ -1,21 +1,43 @@
 package ca.uqtr.menu.tasks;
 
 import ca.uqtr.DataManager;
+
 import ca.uqtr.exceptions.NoPersistentDataException;
+import ca.uqtr.menu.Menu;
+import ca.uqtr.menu.options.Option;
 import ca.uqtr.models.Limousine;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
 public class FindLimousinesByChauffeur extends AbstractTask {
-    @Override
-    public void execute() {
-        // Demander Ã  l'utilisateur l'identification du chauffeur puis ensuite trouver les limousines qui lui appartiennent puis les afficher.
-        // Aide : DataManager.getInstance().getChauffeurs()
-        //        DataManager.getInstance().getLimousines()
-        //
-        //        limousine.toString()
-        //        Set<Limousine> limousines = new HashSet<>();
-    }
+	@Override
+	public void execute() {
+
+		System.out.println("Veuillez entrer l'identification du chauffeur désiré :");
+		Scanner scanner = new Scanner(System.in);
+		String identification = scanner.nextLine();
+
+		try {
+			DataManager manager = DataManager.getInstance();
+			Set<Limousine> limousines = new HashSet<>();
+			manager.getAutoDeLuxe().getChauffeurs().stream()
+					.filter(chauffeur -> chauffeur.getIdentification().equalsIgnoreCase(identification))
+					.forEach(chauffeur -> chauffeur.getTrajets()
+							.forEach(trajet -> limousines.add(trajet.getLimousine())));
+			if (limousines.size() > 0) {
+				limousines.forEach(System.out::println);
+			} else {
+				System.out.println("Désolé, aucun résultat");
+			}
+
+		} catch (NoPersistentDataException e) {
+			System.err.println(e.getMessage());
+		}
+
+	}
+
 }

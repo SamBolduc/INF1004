@@ -8,6 +8,7 @@ public class Compagnie {
     private final String name;
     private List<Chauffeur> chauffeurs;
     private List<Limousine> limousines;
+    private List<Trajet> trajets;
 
     public Compagnie(String name) {
         this.name = name;
@@ -27,5 +28,13 @@ public class Compagnie {
 
     public void setLimousines(List<Limousine> limousines) {
         this.limousines = limousines;
+    }
+    
+    public List<Trajet> getTrajets() {
+        return trajets;
+    }
+
+    public void setTrajets(List<Trajet> trajets) {
+        this.trajets = trajets;
     }
 }

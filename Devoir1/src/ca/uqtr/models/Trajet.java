@@ -15,6 +15,10 @@ public class Trajet {
         this.kmArrivee = kmArrivee;
         this.limousine = limousine;
     }
+    
+    public Limousine getLimousine() {
+        return limousine;
+    }
 
     @Override
     public String toString() {
@@ -23,7 +27,14 @@ public class Trajet {
         str.append("\nVille d'arrivée : ").append(this.villeArrivee);
         str.append("\nKM de départ : ").append(this.kmDepart);
         str.append("\nKM d'arrivée : ").append(this.kmArrivee);
-        str.append("\nLimousine : ").append(this.limousine.toString());
+        str.append("\nLimousine utilis� : ");
+        str.append("\n").append(this.limousine.toString());
+        str.append("\n");
         return str.toString();
     }
 }
+
+
+
+
+
