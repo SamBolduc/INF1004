@@ -1,14 +1,14 @@
-package ca.uqtr.menu.options;
+package ca.uqtr.menu;
 
 import ca.uqtr.menu.tasks.AbstractTask;
 
-public class Option {
+public class MenuOption {
 
     private final int id;
     private final String text;
     private final AbstractTask task;
 
-    public Option(int id, String text, AbstractTask task) {
+    public MenuOption(int id, String text, AbstractTask task) {
         this.id = id;
         this.text = text;
         this.task = task;

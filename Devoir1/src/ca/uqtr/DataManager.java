@@ -75,7 +75,7 @@ public class DataManager {
             trajets.add(trajet);
             this.findChauffeurById(line[0].trim()).ifPresent(x -> x.addTrajet(trajet));
         }
-        
+
         this.autoDeLuxe.setTrajets(trajets);
     }
 

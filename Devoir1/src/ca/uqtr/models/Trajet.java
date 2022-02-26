@@ -27,7 +27,7 @@ public class Trajet {
         str.append("\nVille d'arrivée : ").append(this.villeArrivee);
         str.append("\nKM de départ : ").append(this.kmDepart);
         str.append("\nKM d'arrivée : ").append(this.kmArrivee);
-        str.append("\nLimousine utilis� : ");
+        str.append("\nLimousine utilisé : ");
         str.append("\n").append(this.limousine.toString());
         str.append("\n");
         return str.toString();
