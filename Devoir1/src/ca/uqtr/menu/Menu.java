@@ -16,11 +16,13 @@ import java.util.Scanner;
 public class Menu {
 
     private final List<MenuOption> options;
+    private final Scanner scanner;
 
     public Menu(List<MenuOption> options) {
         this.options = new ArrayList<>();
         this.options.add(new MenuOption(0, "Quitter l'application", new QuitTask()));
         this.options.addAll(options);
+        this.scanner = new Scanner(System.in);
     }
 
     private void printOptions() {
@@ -35,14 +37,13 @@ public class Menu {
         System.out.println("Veuillez sélectionner une option :");
         this.printOptions();
 
-        Scanner scanner = new Scanner(System.in);
         int choice = -1;
         do {
             try {
-                choice = Integer.parseInt(scanner.nextLine());
+                choice = Integer.parseInt(this.scanner.nextLine());
                 MenuOption option = this.findOptionById(choice);
                 if (null == option) throw new InvalidOptionException();
-                option.getTask().execute();
+                option.getTask().execute(this.scanner);
             } catch (NumberFormatException exception) {
                 System.err.println("Veuillez entrer une option numérique.");
             } catch (InvalidOptionException exception) {
@@ -51,8 +52,6 @@ public class Menu {
                 this.printOptions();
             }
         } while (choice != this.options.get(0).getId());
-        
-        scanner.close();
     }
 
     private MenuOption findOptionById(int id) {

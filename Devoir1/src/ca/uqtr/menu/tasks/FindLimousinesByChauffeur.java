@@ -16,9 +16,8 @@ import java.util.Set;
 
 public class FindLimousinesByChauffeur extends AbstractTask {
     @Override
-    public void execute() {
+    public void execute(Scanner scanner) {
         System.out.println("Veuillez entrer l'identification du chauffeur désiré :");
-        Scanner scanner = new Scanner(System.in);
         String identification = scanner.nextLine();
 
         try {
@@ -31,8 +30,6 @@ public class FindLimousinesByChauffeur extends AbstractTask {
 
         } catch (NoPersistentDataException e) {
             System.err.println(e.getMessage());
-        } finally {
-        	scanner.close();
         }
     }
 }

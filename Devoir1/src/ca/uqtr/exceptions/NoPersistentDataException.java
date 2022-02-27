@@ -6,7 +6,8 @@
 
 package ca.uqtr.exceptions;
 
-public class NoPersistentDataException extends Exception {
+@SuppressWarnings("serial")
+public class NoPersistentDataException extends Exception { //On ne veut pas généré un field pour le # de serialisation puisqu'il ne sera pas utilisé.
 
     public NoPersistentDataException() {
         super("Les données n'a pas été initialisés.");

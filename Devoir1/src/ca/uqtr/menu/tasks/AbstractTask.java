@@ -6,6 +6,8 @@
 
 package ca.uqtr.menu.tasks;
 
+import java.util.Scanner;
+
 public abstract class AbstractTask {
-    public abstract void execute();
+    public abstract void execute(Scanner scanner);
 }

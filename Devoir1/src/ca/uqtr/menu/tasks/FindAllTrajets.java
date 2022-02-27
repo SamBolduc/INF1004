@@ -9,11 +9,13 @@ package ca.uqtr.menu.tasks;
 import ca.uqtr.DataManager;
 import ca.uqtr.exceptions.NoPersistentDataException;
 
+import java.util.Scanner;
+
 // Afficher toutes les caractéristiques des trajets effectués
 // ainsi que les caractéristiques des limousines utilisées
 public class FindAllTrajets extends AbstractTask {
     @Override
-    public void execute() {
+    public void execute(Scanner scanner) {
 
         try {
             DataManager manager = DataManager.getInstance();
