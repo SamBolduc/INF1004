@@ -31,6 +31,8 @@ public class FindLimousinesByChauffeur extends AbstractTask {
 
         } catch (NoPersistentDataException e) {
             System.err.println(e.getMessage());
+        } finally {
+        	scanner.close();
         }
     }
 }
