@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Classe permettant de gérer le menu d'accueil contenant les options.
+ */
+
 package ca.uqtr.menu;
 
 import ca.uqtr.exceptions.InvalidOptionException;
@@ -18,11 +24,11 @@ public class Menu {
     }
 
     private void printOptions() {
-        System.out.println("");
+        System.out.println();
         for (MenuOption option : options) {
             System.out.println(option);
         }
-        System.out.println("");
+        System.out.println();
     }
 
     public void displayAndPrompt() {
@@ -35,8 +41,7 @@ public class Menu {
             try {
                 choice = Integer.parseInt(scanner.nextLine());
                 MenuOption option = this.findOptionById(choice);
-                if (null == option)
-                    throw new InvalidOptionException();
+                if (null == option) throw new InvalidOptionException();
                 option.getTask().execute();
             } catch (NumberFormatException exception) {
                 System.err.println("Veuillez entrer une option numérique.");
@@ -52,12 +57,3 @@ public class Menu {
         return this.options.stream().filter(x -> x.getId() == id).findAny().orElse(null);
     }
 }
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Classe servant de manager des données.
+ */
+
 package ca.uqtr;
 
 import ca.uqtr.exceptions.NoPersistentDataException;
@@ -23,8 +29,7 @@ public class DataManager {
     private static DataManager instance;
 
     public static DataManager getInstance() throws NoPersistentDataException {
-        if (instance == null)
-            throw new NoPersistentDataException();
+        if (instance == null) throw new NoPersistentDataException();
         return instance;
     }
 
@@ -42,7 +47,7 @@ public class DataManager {
         return this.autoDeLuxe;
     }
 
-    public void loadChauffeurs(String filePath) throws FileNotFoundException {
+    public void loadChauffeurs(String filePath) {
         List<Chauffeur> chauffeurs = new ArrayList<>();
 
         List<String[]> data = this.getFileData(filePath);
@@ -54,7 +59,7 @@ public class DataManager {
         this.autoDeLuxe.setChauffeurs(chauffeurs);
     }
 
-    public void loadLimousines(String filePath) throws FileNotFoundException {
+    public void loadLimousines(String filePath) {
         List<Limousine> limousines = new ArrayList<>();
 
         List<String[]> data = this.getFileData(filePath);
@@ -66,7 +71,7 @@ public class DataManager {
         this.autoDeLuxe.setLimousines(limousines);
     }
 
-    public void loadTrajets(String filePath) throws FileNotFoundException {
+    public void loadTrajets(String filePath) {
         List<Trajet> trajets = new ArrayList<>();
 
         List<String[]> data = this.getFileData(filePath);
@@ -80,19 +85,11 @@ public class DataManager {
     }
 
     public Optional<Chauffeur> findChauffeurById(String id) {
-        return this.autoDeLuxe
-                .getChauffeurs()
-                .stream()
-                .filter(x -> x.getIdentification().equals(id))
-                .findFirst();
+        return this.autoDeLuxe.getChauffeurs().stream().filter(x -> x.getIdentification().equals(id)).findFirst();
     }
 
     public Optional<Limousine> findLimousineByImmatriculation(String immatriculation) {
-        return this.autoDeLuxe
-                .getLimousines()
-                .stream()
-                .filter(x -> x.getImmatriculation().equals(immatriculation))
-                .findFirst();
+        return this.autoDeLuxe.getLimousines().stream().filter(x -> x.getImmatriculation().equals(immatriculation)).findFirst();
     }
 
     private List<String[]> getFileData(String filePath) {
@@ -101,8 +98,7 @@ public class DataManager {
 
         try (Stream<String> lines = Files.lines(path)) {
             lines.forEach(line -> {
-                if (!line.trim().equals(""))
-                    data.add(line.split("\t"));
+                if (!line.trim().equals("")) data.add(line.split("\t"));
             });
         } catch (IOException e) {
             System.err.println("Il n'a pas été possible de lire le fichier " + filePath + ". Erreur : " + e.getMessage());
@@ -110,5 +106,4 @@ public class DataManager {
 
         return data;
     }
-
 }

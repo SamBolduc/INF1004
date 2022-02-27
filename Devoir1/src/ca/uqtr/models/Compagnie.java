@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Modèle d'une compagnie.
+ */
+
 package ca.uqtr.models;
 
 
@@ -29,7 +35,7 @@ public class Compagnie {
     public void setLimousines(List<Limousine> limousines) {
         this.limousines = limousines;
     }
-    
+
     public List<Trajet> getTrajets() {
         return trajets;
     }

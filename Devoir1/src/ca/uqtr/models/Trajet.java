@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Modèle d'un trajet.
+ */
 package ca.uqtr.models;
 
 public class Trajet {
@@ -15,7 +20,7 @@ public class Trajet {
         this.kmArrivee = kmArrivee;
         this.limousine = limousine;
     }
-    
+
     public Limousine getLimousine() {
         return limousine;
     }
@@ -33,8 +38,3 @@ public class Trajet {
         return str.toString();
     }
 }
-
-
-
-
-
