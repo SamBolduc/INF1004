@@ -11,7 +11,9 @@ import java.util.List;
 
 public class Compagnie {
 
-    private final String name;
+    @SuppressWarnings("unused")
+	private final String name; //Le field name n'est pas utilisé pour l'instant mais pourrait l'être dans une version future de l'application.
+    
     private List<Chauffeur> chauffeurs;
     private List<Limousine> limousines;
     private List<Trajet> trajets;
