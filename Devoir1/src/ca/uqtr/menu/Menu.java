@@ -51,6 +51,8 @@ public class Menu {
                 this.printOptions();
             }
         } while (choice != this.options.get(0).getId());
+        
+        scanner.close();
     }
 
     private MenuOption findOptionById(int id) {
