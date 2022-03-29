@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Classe permettant de gérer le menu d'accueil contenant les options.
+ */
+
 package ca.uqtr.menu;
 
 import ca.uqtr.exceptions.InvalidOptionException;
@@ -10,34 +16,34 @@ import java.util.Scanner;
 public class Menu {
 
     private final List<MenuOption> options;
+    private final Scanner scanner;
 
     public Menu(List<MenuOption> options) {
         this.options = new ArrayList<>();
         this.options.add(new MenuOption(0, "Quitter l'application", new QuitTask()));
         this.options.addAll(options);
+        this.scanner = new Scanner(System.in);
     }
 
     private void printOptions() {
-        System.out.println("");
+        System.out.println();
         for (MenuOption option : options) {
             System.out.println(option);
         }
-        System.out.println("");
+        System.out.println();
     }
 
     public void displayAndPrompt() {
         System.out.println("Veuillez sélectionner une option :");
         this.printOptions();
 
-        Scanner scanner = new Scanner(System.in);
         int choice = -1;
         do {
             try {
-                choice = Integer.parseInt(scanner.nextLine());
+                choice = Integer.parseInt(this.scanner.nextLine());
                 MenuOption option = this.findOptionById(choice);
-                if (null == option)
-                    throw new InvalidOptionException();
-                option.getTask().execute();
+                if (null == option) throw new InvalidOptionException();
+                option.getTask().execute(this.scanner);
             } catch (NumberFormatException exception) {
                 System.err.println("Veuillez entrer une option numérique.");
             } catch (InvalidOptionException exception) {
@@ -52,12 +58,3 @@ public class Menu {
         return this.options.stream().filter(x -> x.getId() == id).findAny().orElse(null);
     }
 }
-
-
-
-
-
-
-
-
-

@@ -1,9 +1,15 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Classe principale.
+ */
+
 package ca.uqtr;
 
 import ca.uqtr.menu.Menu;
 import ca.uqtr.menu.MenuOption;
-import ca.uqtr.menu.tasks.FindLimousinesByChauffeur;
 import ca.uqtr.menu.tasks.FindAllTrajets;
+import ca.uqtr.menu.tasks.FindLimousinesByChauffeur;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -31,7 +37,7 @@ public class Main {
         }
 
         try {
-            DataManager manager = new DataManager(args[0], args[1], args[2]);
+            new DataManager(args[0], args[1], args[2]);
         } catch (FileNotFoundException e) {
             System.err.println("Il n'a pas été possible de lire les fichiers de données.");
             System.exit(-1);

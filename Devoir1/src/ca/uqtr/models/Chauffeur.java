@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Modèle du chauffeur.
+ */
+
 package ca.uqtr.models;
 
 import java.util.ArrayList;
@@ -31,7 +37,7 @@ public class Chauffeur {
     public String getIdentification() {
         return identification;
     }
-    
+
     public List<Trajet> getTrajets() {
         return trajets;
     }

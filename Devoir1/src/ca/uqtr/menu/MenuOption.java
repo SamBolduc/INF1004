@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Classe correspondante à une option dans le menu principal.
+ */
+
 package ca.uqtr.menu;
 
 import ca.uqtr.menu.tasks.AbstractTask;

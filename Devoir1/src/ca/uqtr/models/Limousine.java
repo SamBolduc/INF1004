@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ * Contenu: Modèle de la limousine.
+ */
+
 package ca.uqtr.models;
 
 public class Limousine {
