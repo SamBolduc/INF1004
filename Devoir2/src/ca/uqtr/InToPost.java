@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ */
+
 package ca.uqtr;
 
 public class InToPost {
@@ -34,7 +39,7 @@ public class InToPost {
                 case ")":
                     cp++;
                     if (cp > op)
-                        return "Erreur";
+                        return "Error";
                     gotParen();
                     break;
                 case "$":
