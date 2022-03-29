@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ *
+ */
+
 package ca.uqtr;
 
 import java.io.BufferedReader;
@@ -20,13 +25,13 @@ public class Main {
             output = theTrans.doTrans();
             System.out.println("Postfix is : " + output + "\n");
 
-            if (output != "Erreur") {
+            if (output != "Error") {
                 ParsePost parser = new ParsePost(output);
                 double eval = parser.doParse();
                 if (Double.isNaN(eval) || Double.isInfinite(eval)) {
-                    System.out.println("Erreur");
+                    System.out.println("Error");
                 } else System.out.println("Evaluation is : " + eval + "\n");
-            } else System.out.println("Erreur");
+            } else System.out.println("Error");
         }
     }
 
