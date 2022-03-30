@@ -19,10 +19,11 @@ public class InToPost {
     }
 
     public String doTrans() {
+        System.out.println("Infix is : " + this.input);
         String[] inputs = this.split(this.input);
 
         for (String ch : inputs) {
-            theStack.displayStack("For " + ch + " ");
+//            theStack.displayStack("For " + ch + " ");
             switch (ch) {
                 case "+":
                 case "-":
@@ -52,10 +53,10 @@ public class InToPost {
         }
 
         while (!theStack.isEmpty()) {
-            theStack.displayStack("While ");
+//            theStack.displayStack("While ");
             output = output + theStack.pop() + " ";
         }
-        theStack.displayStack("End  ");
+//        theStack.displayStack("End  ");
         return output;
     }
 
