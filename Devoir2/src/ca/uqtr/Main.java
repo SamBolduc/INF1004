@@ -49,6 +49,7 @@ public class Main {
             s = br.readLine();
             lines.add(s);
         } while (s != null && !s.trim().equals(""));
+        
         return lines;
     }
 }

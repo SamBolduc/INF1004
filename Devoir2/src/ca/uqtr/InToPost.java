@@ -23,7 +23,6 @@ public class InToPost {
         String[] inputs = this.split(this.input);
 
         for (String ch : inputs) {
-//            theStack.displayStack("For " + ch + " ");
             switch (ch) {
                 case "+":
                 case "-":
@@ -53,10 +52,8 @@ public class InToPost {
         }
 
         while (!theStack.isEmpty()) {
-//            theStack.displayStack("While ");
             output = output + theStack.pop() + " ";
         }
-//        theStack.displayStack("End  ");
         return output;
     }
 
