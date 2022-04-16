@@ -2,13 +2,13 @@ package secretariat.exception;
 
 public class BadInstanciationException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public BadInstanciationException() {
-		super();
-	}
+    public BadInstanciationException() {
+        super();
+    }
 
-	public BadInstanciationException(String message) {
-		super(message);
-	}
+    public BadInstanciationException(String message) {
+        super(message);
+    }
 }

@@ -27,17 +27,17 @@ public class DataManager {
         instance = this;
     }
 
-//    public void loadTrajets(String filePath) {
-//        List<Trajet> trajets = new ArrayList<>();
-//
-//        List<String[]> data = this.getFileData(filePath);
-//        for (String[] line : data) {
-//            Trajet trajet = new Trajet(line[1], line[2], Integer.parseInt(line[3].trim()), Integer.parseInt(line[4].trim()), this.findLimousineByImmatriculation(line[5].trim()).orElse(null));
-//            trajets.add(trajet);
-//            this.findChauffeurById(line[0].trim()).ifPresent(x -> x.addTrajet(trajet));
-//        }
-//
-//        this.programmes.setTrajets(trajets);
-//    }
+    //    public void loadTrajets(String filePath) {
+    //        List<Trajet> trajets = new ArrayList<>();
+    //
+    //        List<String[]> data = this.getFileData(filePath);
+    //        for (String[] line : data) {
+    //            Trajet trajet = new Trajet(line[1], line[2], Integer.parseInt(line[3].trim()), Integer.parseInt(line[4].trim()), this.findLimousineByImmatriculation(line[5].trim()).orElse(null));
+    //            trajets.add(trajet);
+    //            this.findChauffeurById(line[0].trim()).ifPresent(x -> x.addTrajet(trajet));
+    //        }
+    //
+    //        this.programmes.setTrajets(trajets);
+    //    }
 
 }

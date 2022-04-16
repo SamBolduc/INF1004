@@ -38,7 +38,7 @@ public class Cours {
 
     public List<Cours> getPrerequis() {
         return null;
-//        return prerequis.stream().map();
+        //        return prerequis.stream().map();
     }
 
     public void setPrerequis(List<String> prerequis) {
