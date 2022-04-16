@@ -1,9 +1,9 @@
 package secretariat;
 
 import secretariat.exception.BadInstanciationException;
-import secretariat.exception.NotImplementedException;
 
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Etudiant {
 
@@ -43,7 +43,8 @@ public class Etudiant {
      * celle présente dans {@link Cours})
      */
     private void valideEtat() {
-        if (this.codePermanent == null || this.codePermanent.isEmpty()) throw new BadInstanciationException("codePermanent null ou vide");
+        if (this.codePermanent == null || this.codePermanent.isEmpty())
+            throw new BadInstanciationException("codePermanent null ou vide");
         if (this.nom == null || this.nom.isEmpty()) throw new BadInstanciationException("nom null ou vide");
         if (this.prenom == null || this.prenom.isEmpty()) throw new BadInstanciationException("prenom null ou vide");
 
@@ -97,6 +98,20 @@ public class Etudiant {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Etudiant)) return false;
+        if (other == this) return true;
+
+        Etudiant etudiant = (Etudiant) other;
+        return this.getCodePermanent().equals(etudiant.getCodePermanent());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.codePermanent);
     }
 
 }

@@ -2,6 +2,7 @@ package secretariat;
 
 import secretariat.exception.NotImplementedException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,14 +15,23 @@ public class TableauPrincipal {
     private List<Cours> listeCours;
     private List<Etudiant> listeEtudiants;
 
-    public TableauPrincipal() {}
+    public TableauPrincipal() {
+        this.listeCours = new ArrayList<>();
+        this.listeEtudiants = new ArrayList<>();
+    }
 
     public void ajouterEtudiant(Etudiant etud) {
-        throw new NotImplementedException();
+        Etudiant existent = this.listeEtudiants.stream().filter(x -> x.getCodePermanent().equals(etud.getCodePermanent())).findFirst().orElse(null);
+        if (existent != null) throw new IllegalArgumentException("Student already exist");
+
+        this.listeEtudiants.add(etud);
     }
 
     public void ajouterCours(Cours cours) {
-        throw new NotImplementedException();
+        Cours existent = this.listeCours.stream().filter(x -> x.getSigle().equals(cours.getSigle())).findFirst().orElse(null);
+        if (existent != null) throw new IllegalArgumentException("Course already exist");
+
+        this.listeCours.add(cours);
     }
 
     /**
@@ -40,6 +50,13 @@ public class TableauPrincipal {
      * @return si l'inscription a pu être réalisée.
      */
     public boolean inscrire(Cours cours, Etudiant etud) {
+        if(cours == null || etud == null) throw new IllegalArgumentException();
+
+        Etudiant existentStudent = this.listeEtudiants.stream().filter(x -> x.equals(etud)).findFirst().orElse(null);
+        Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
+        if (existentStudent == null || existentCourse == null) return false;
+
+        //TODO: À completer
         throw new NotImplementedException();
     }
 
@@ -58,8 +75,10 @@ public class TableauPrincipal {
      * @return si l'inscription a pu être réalisée.
      */
     public boolean inscrire(String sigle, String codePermanent) {
+        Etudiant existentStudent = this.listeEtudiants.stream().filter(x -> x.getCodePermanent().equalsIgnoreCase(codePermanent)).findFirst().orElse(null);
+        Cours existentCourse = this.listeCours.stream().filter(x -> x.getSigle().equalsIgnoreCase(sigle)).findFirst().orElse(null);
 
-        throw new NotImplementedException();
+        return this.inscrire(existentCourse, existentStudent);
     }
 
     /**
@@ -77,18 +96,28 @@ public class TableauPrincipal {
      * @return si l'inscription a pu être réalisée.
      */
     public boolean desinscrire(Cours cours, Etudiant etud) {
+        if(cours == null || etud == null) throw new IllegalArgumentException();
+
+        Etudiant existentStudent = this.listeEtudiants.stream().filter(x -> x.equals(etud)).findFirst().orElse(null);
+        Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
+        if (existentStudent == null || existentCourse == null) return false;
+
+        //TODO: À completer
         throw new NotImplementedException();
     }
 
     /**
      * Réalise la désinscription d'un étudiant à un cours.
      *
-     * @param cours L'instance du cours
-     * @param etud  L'instance de l'étudiant
+     * @param sigle Sigle du cours
+     * @param codePermanent  Code permanent de l'étudiant
      * @return si l'inscription a pu être réalisée.
      */
     public boolean desinscrire(String sigle, String codePermanent) {
-        throw new NotImplementedException();
+        Etudiant existentStudent = this.listeEtudiants.stream().filter(x -> x.getCodePermanent().equalsIgnoreCase(codePermanent)).findFirst().orElse(null);
+        Cours existentCourse = this.listeCours.stream().filter(x -> x.getSigle().equalsIgnoreCase(sigle)).findFirst().orElse(null);
+
+        return this.desinscrire(existentCourse, existentStudent);
     }
 
     public Iterable<Cours> getCours() {

@@ -5,6 +5,7 @@ import secretariat.exception.BadInstanciationException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class Cours {
 
@@ -77,5 +78,19 @@ public class Cours {
      */
     public Iterator<Inscription> iterator() {
         return inscriptions.iterator();
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if (!(other instanceof Cours)) return false;
+        if (other == this) return true;
+
+        Cours cours = (Cours) other;
+        return this.getSigle().equals(cours.getSigle());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.sigle);
     }
 }
