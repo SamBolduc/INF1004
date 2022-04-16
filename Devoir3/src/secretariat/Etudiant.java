@@ -43,8 +43,9 @@ public class Etudiant {
      * celle présente dans {@link Cours})
      */
     private void valideEtat() {
-
-        throw new NotImplementedException();
+        if (this.codePermanent == null || this.codePermanent.isEmpty()) throw new BadInstanciationException("codePermanent null ou vide");
+        if (this.nom == null || this.nom.isEmpty()) throw new BadInstanciationException("nom null ou vide");
+        if (this.prenom == null || this.prenom.isEmpty()) throw new BadInstanciationException("prenom null ou vide");
 
     }
 
@@ -83,7 +84,7 @@ public class Etudiant {
      * @return
      */
     public Iterator<Inscription> iterator() {
-        throw new NotImplementedException();
+        return this.inscriptions.iterator();
     }
 
     public void setMoyenneCumul(double moyenneCumul) {
