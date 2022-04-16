@@ -1,11 +1,15 @@
 package secretariat.io;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import secretariat.Cours;
 import secretariat.Etudiant;
 import secretariat.Inscription;
 import secretariat.TableauPrincipal;
-import secretariat.exception.NotImplementedException;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -15,19 +19,53 @@ import java.util.Collection;
 public class Util {
 
     public static Reader<Collection<Etudiant>> getEtudiantReader() {
-        throw new NotImplementedException();
+        return file -> {
+            Gson gson = new Gson();
+            try {
+                String content = new String(Files.readAllBytes(file.toPath()));
+                return gson.fromJson(content, new TypeToken<ArrayList<Etudiant>>() {}.getType());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return new ArrayList<>();
+        };
     }
 
     public static Writer<Iterable<Etudiant>> getEtudiantWriter() {
-        throw new NotImplementedException();
+        return (obj, file) -> {
+            Gson gson = new Gson();
+            try {
+                Files.write(file.toPath(), gson.toJson(obj).getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
     }
 
     public static Reader<Collection<Cours>> getCoursReader() {
-        throw new NotImplementedException();
+        return file -> {
+            Gson gson = new Gson();
+            try {
+                String content = new String(Files.readAllBytes(file.toPath()));
+                return gson.fromJson(content, new TypeToken<ArrayList<Cours>>() {}.getType());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return new ArrayList<>();
+        };
     }
 
     public static Writer<Iterable<Cours>> getCoursWriter() {
-        throw new NotImplementedException();
+        return (obj, file) -> {
+            Gson gson = new Gson();
+            try {
+                Files.write(file.toPath(), gson.toJson(obj).getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
     }
 
     /**
@@ -39,11 +77,28 @@ public class Util {
      * @return
      */
     public Reader<Collection<Inscription>> getInscriptionReader(TableauPrincipal tableau) {
-        throw new NotImplementedException();
+        return file -> {
+            Gson gson = new Gson();
+            try {
+                String content = new String(Files.readAllBytes(file.toPath()));
+                return gson.fromJson(content, new TypeToken<ArrayList<Inscription>>() {}.getType());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return new ArrayList<>();
+        };
     }
 
     public Writer<Iterable<Inscription>> getInscriptionWriter() {
-        throw new NotImplementedException();
+        return (obj, file) -> {
+            Gson gson = new Gson();
+            try {
+                Files.write(file.toPath(), gson.toJson(obj).getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
     }
 
 }
