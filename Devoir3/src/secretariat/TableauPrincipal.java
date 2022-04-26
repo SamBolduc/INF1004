@@ -15,6 +15,13 @@ public class TableauPrincipal {
     private List<Cours> listeCours;
     private List<Etudiant> listeEtudiants;
 
+    private static TableauPrincipal instance;
+    public static TableauPrincipal getInstance() {
+        if (instance == null)
+            instance = new TableauPrincipal();
+        return instance;
+    }
+
     public TableauPrincipal() {
         this.listeCours = new ArrayList<>();
         this.listeEtudiants = new ArrayList<>();
