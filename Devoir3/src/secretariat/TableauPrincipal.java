@@ -3,6 +3,7 @@ package secretariat;
 import secretariat.exception.NotImplementedException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -63,8 +64,8 @@ public class TableauPrincipal {
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
         if (existentStudent == null || existentCourse == null) return false;
 
-        //TODO: À completer
-        throw new NotImplementedException();
+        existentCourse.ajouterInscription(new Inscription(existentCourse, existentStudent));
+        return true;
     }
 
     /**
@@ -109,8 +110,15 @@ public class TableauPrincipal {
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
         if (existentStudent == null || existentCourse == null) return false;
 
-        //TODO: À completer
-        throw new NotImplementedException();
+        Iterator<Inscription> iterator = existentCourse.iterator();
+        while(iterator.hasNext()) {
+            Inscription inscription = iterator.next();
+            if (inscription.getCours().equals(existentCourse) && inscription.getEtudiant().equals(existentStudent)) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

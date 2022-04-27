@@ -20,7 +20,7 @@ public class Cours {
      * {@link Iterator} qui nous permet de parcourir la liste des inscriptions du
      * cours.
      */
-    private transient Iterable<Inscription> inscriptions;
+    private transient List<Inscription> inscriptions;
 
     public Cours(String sigle, String nom, int maxEtudiants, List<Cours> prerequis) {
         this.sigle = sigle;
@@ -93,4 +93,9 @@ public class Cours {
     public int hashCode() {
         return Objects.hash(this.sigle);
     }
+
+    public void ajouterInscription(Inscription inscription) {
+        this.inscriptions.add(inscription);
+    }
+
 }
