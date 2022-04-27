@@ -64,7 +64,7 @@ public class TableauPrincipal {
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
         if (existentStudent == null || existentCourse == null) return false;
 
-        existentCourse.ajouterInscription(new Inscription(existentCourse, existentStudent));
+//        existentCourse.ajouterInscription(new Inscription(existentCourse, existentStudent));
         return true;
     }
 
@@ -115,10 +115,9 @@ public class TableauPrincipal {
             Inscription inscription = iterator.next();
             if (inscription.getCours().equals(existentCourse) && inscription.getEtudiant().equals(existentStudent)) {
                 iterator.remove();
-                return true;
             }
         }
-        return false;
+        return true;
     }
 
     /**
