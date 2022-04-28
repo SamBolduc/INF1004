@@ -1,7 +1,13 @@
+/*
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
+ *
+ */
+
 package secretariat;
 
 import secretariat.exception.BadInstanciationException;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 
@@ -21,16 +27,20 @@ public class Etudiant {
      */
     private transient Iterable<Inscription> inscriptions;
 
-    public Etudiant(String codePermanent, String nom, String prenom, int noProgramme, int credits) {
+    public Etudiant(String codePermanent, String nom, String prenom, int noProgramme, int credits, double moyenneCumul) {
         super();
         this.codePermanent = codePermanent;
         this.nom = nom;
         this.prenom = prenom;
         this.noProgramme = noProgramme;
         this.credits = credits;
-        this.moyenneCumul = 0;
-
+        this.moyenneCumul = moyenneCumul;
+        this.inscriptions = new ArrayList<>();
         valideEtat();
+    }
+
+    public Etudiant(String codePermanent, String nom, String prenom, int noProgramme, int credits) {
+        this(codePermanent, nom, prenom, noProgramme, credits, 0);
     }
 
     /**
@@ -79,7 +89,7 @@ public class Etudiant {
     }
 
     /**
-     * TODO Doit retourner un <b>nouvel</b> {@link Iterator} d'inscription
+     *
      * permettant de parcourir la list des inscriptions.
      *
      * @return

@@ -1,7 +1,6 @@
 /*
- * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
  *
- * Contenu: Classe permettant de gérer le menu d'accueil contenant les options.
  */
 
 package secretariat.app.menu;

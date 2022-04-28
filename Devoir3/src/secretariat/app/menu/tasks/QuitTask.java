@@ -1,7 +1,6 @@
 /*
- * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
  *
- * Contenu: Task permettant de quitter l'application.
  */
 
 package secretariat.app.menu.tasks;

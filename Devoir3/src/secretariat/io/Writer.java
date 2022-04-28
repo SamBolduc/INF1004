@@ -1,3 +1,8 @@
+/*
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
+ *
+ */
+
 package secretariat.io;
 
 import java.io.File;

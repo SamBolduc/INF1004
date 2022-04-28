@@ -1,7 +1,6 @@
 /*
- * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
  *
- * Contenu: Classe correspondante à une option dans le menu principal.
  */
 
 package secretariat.app.menu;

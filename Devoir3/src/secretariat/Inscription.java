@@ -1,3 +1,8 @@
+/*
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
+ *
+ */
+
 package secretariat;
 
 /**
@@ -14,6 +19,11 @@ public class Inscription {
     /*
      * Note: Transient signifie juste que ces éléments ne devraient pas être
      * sérialisés avec l'objet
+     *
+     * prochainCours : même étudiant, mais prochain cours qui est inscrit
+     * prochainEtudiant: même cours, mais prochain étudiant de ce cours
+     *
+     *
      */
     private transient Inscription prochainCours, prochainEtudiant;
 

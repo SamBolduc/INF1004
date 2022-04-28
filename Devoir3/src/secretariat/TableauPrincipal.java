@@ -1,7 +1,13 @@
+/*
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
+ *
+ */
+
 package secretariat;
 
-import secretariat.exception.NotImplementedException;
+import secretariat.io.Util;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,15 +23,34 @@ public class TableauPrincipal {
     private List<Etudiant> listeEtudiants;
 
     private static TableauPrincipal instance;
+
     public static TableauPrincipal getInstance() {
-        if (instance == null)
-            instance = new TableauPrincipal();
+        if (instance == null) instance = new TableauPrincipal();
         return instance;
     }
 
     public TableauPrincipal() {
         this.listeCours = new ArrayList<>();
         this.listeEtudiants = new ArrayList<>();
+    }
+
+    public void load() {
+        this.listeEtudiants = new ArrayList<>(Util.getEtudiantReader().read(new File("Etudiants.txt")));
+        this.listeCours = new ArrayList<>(Util.getCoursReader().read(new File("Cours.txt")));
+
+        new Util().getInscriptionReader(this).read(new File("Inscriptions.txt"));
+    }
+
+    public void save() {
+        Util.getEtudiantWriter().write(this.listeEtudiants, new File("Etudiants.txt"));
+        Util.getCoursWriter().write(this.listeCours, new File("Cours.txt"));
+
+        List<Inscription> inscriptions = new ArrayList<>();
+        for (Cours cours : this.listeCours) {
+            Iterator<Inscription> it = cours.iterator();
+            while (it.hasNext()) inscriptions.add(it.next());
+        }
+        new Util().getInscriptionWriter().write(inscriptions, new File("Inscriptions.txt"));
     }
 
     public void ajouterEtudiant(Etudiant etud) {
@@ -58,7 +83,7 @@ public class TableauPrincipal {
      * @return si l'inscription a pu être réalisée.
      */
     public boolean inscrire(Cours cours, Etudiant etud) {
-        if(cours == null || etud == null) throw new IllegalArgumentException();
+        if (cours == null || etud == null) return false;
 
         Etudiant existentStudent = this.listeEtudiants.stream().filter(x -> x.equals(etud)).findFirst().orElse(null);
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
@@ -104,14 +129,14 @@ public class TableauPrincipal {
      * @return si l'inscription a pu être réalisée.
      */
     public boolean desinscrire(Cours cours, Etudiant etud) {
-        if(cours == null || etud == null) throw new IllegalArgumentException();
+        if (cours == null || etud == null) return false;
 
         Etudiant existentStudent = this.listeEtudiants.stream().filter(x -> x.equals(etud)).findFirst().orElse(null);
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
         if (existentStudent == null || existentCourse == null) return false;
 
         Iterator<Inscription> iterator = existentCourse.iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Inscription inscription = iterator.next();
             if (inscription.getCours().equals(existentCourse) && inscription.getEtudiant().equals(existentStudent)) {
                 iterator.remove();
@@ -123,8 +148,8 @@ public class TableauPrincipal {
     /**
      * Réalise la désinscription d'un étudiant à un cours.
      *
-     * @param sigle Sigle du cours
-     * @param codePermanent  Code permanent de l'étudiant
+     * @param sigle         Sigle du cours
+     * @param codePermanent Code permanent de l'étudiant
      * @return si l'inscription a pu être réalisée.
      */
     public boolean desinscrire(String sigle, String codePermanent) {

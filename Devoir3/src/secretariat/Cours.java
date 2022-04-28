@@ -1,3 +1,8 @@
+/*
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
+ *
+ */
+
 package secretariat;
 
 import secretariat.exception.BadInstanciationException;
@@ -13,10 +18,10 @@ public class Cours {
 
     private int maxEtudiants;
     private transient int nbEtudiant;
-    private List<Cours> prerequis = new ArrayList<>();
+    private List<Cours> prerequis;
 
     /**
-     * Représente la liste des inscriptions TODO On doit pouvoir obtenir un
+     * Représente la liste des inscriptions
      * {@link Iterator} qui nous permet de parcourir la liste des inscriptions du
      * cours.
      */

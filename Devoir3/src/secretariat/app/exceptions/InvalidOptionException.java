@@ -1,7 +1,6 @@
 /*
- * Copyright (C) 2022 Samuel Bolduc, Simon Bolduc & Patrick Vezina. - Tous droits réservés
+ * Modifié par:Samuel Bolduc, Simon Bolduc & Patrick Vezina.
  *
- * Contenu: Exception lancée lorsqu'une option invalide est choisis.
  */
 
 package secretariat.app.exceptions;
