@@ -6,8 +6,6 @@
 package secretariat.app.menu.tasks;
 
 import secretariat.TableauPrincipal;
-import secretariat.exception.BadInstanciationException;
-
 import java.util.Scanner;
 
 public class InscrireEtudiant extends AbstractTask {
