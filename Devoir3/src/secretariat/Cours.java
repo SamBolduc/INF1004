@@ -33,6 +33,9 @@ public class Cours {
         this.maxEtudiants = maxEtudiants;
         this.prerequis = prerequis;
 
+        this.nbEtudiant = 0;
+        this.inscriptions = new ArrayList<>();
+
         valideEtat();
     }
 
@@ -91,7 +94,7 @@ public class Cours {
         if (other == this) return true;
 
         Cours cours = (Cours) other;
-        return this.getSigle().equals(cours.getSigle());
+        return this.getSigle().equalsIgnoreCase(cours.getSigle()) && this.getNom().equalsIgnoreCase(cours.getNom()) && this.getMaxEtudiants() == cours.getMaxEtudiants() && this.getPrerequis().equals(cours.getPrerequis());
     }
 
     @Override
@@ -99,4 +102,8 @@ public class Cours {
         return Objects.hash(this.sigle);
     }
 
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
+        this.nbEtudiant = inscriptions.size();
+    }
 }

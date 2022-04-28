@@ -89,7 +89,34 @@ public class TableauPrincipal {
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
         if (existentStudent == null || existentCourse == null) return false;
 
-//        existentCourse.ajouterInscription(new Inscription(existentCourse, existentStudent));
+        List<Inscription> inscriptions = new ArrayList<>();
+        Inscription newInscription = new Inscription(existentCourse, existentStudent);
+
+        if (existentCourse.getMaxEtudiants() == existentCourse.getNbEtudiant())
+            return false;
+
+        // Course's inscription
+        Iterator<Inscription> it = existentCourse.iterator();
+        while (it.hasNext()) {// get last inscription
+            Inscription insc = it.next();
+            inscriptions.add(insc);
+            if (insc.getEtudiant().getCodePermanent().equalsIgnoreCase(etud.getCodePermanent()))
+                return false;
+        }
+
+        if (inscriptions.size() > 0) inscriptions.get(inscriptions.size() - 1).setProchainEtudiant(newInscription);
+        inscriptions.add(newInscription);
+        existentCourse.setInscriptions(inscriptions);
+
+        // Student's inscription
+        inscriptions = new ArrayList<>();
+        it = existentStudent.iterator();
+        while (it.hasNext()) // get last inscription
+            inscriptions.add(it.next());
+        if (inscriptions.size() > 0) inscriptions.get(inscriptions.size() - 1).setProchainCours(newInscription);
+        inscriptions.add(newInscription);
+        existentStudent.setInscriptions(inscriptions);
+
         return true;
     }
 
@@ -135,14 +162,32 @@ public class TableauPrincipal {
         Cours existentCourse = this.listeCours.stream().filter(x -> x.equals(cours)).findFirst().orElse(null);
         if (existentStudent == null || existentCourse == null) return false;
 
+        Inscription lastInscription = null;
         Iterator<Inscription> iterator = existentCourse.iterator();
         while (iterator.hasNext()) {
             Inscription inscription = iterator.next();
             if (inscription.getCours().equals(existentCourse) && inscription.getEtudiant().equals(existentStudent)) {
+                if (lastInscription != null && iterator.hasNext())
+                    lastInscription.setProchainEtudiant(iterator.next().getProchainEtudiant());
                 iterator.remove();
             }
+            lastInscription = inscription;
         }
-        return true;
+
+        lastInscription = null;
+        iterator = existentStudent.iterator();
+        while (iterator.hasNext()) {
+            Inscription inscription = iterator.next();
+            if (inscription.getCours().equals(existentCourse) && inscription.getEtudiant().equals(existentStudent)) {
+                if (lastInscription != null && iterator.hasNext())
+                    lastInscription.setProchainCours(iterator.next().getProchainCours());
+                iterator.remove();
+                return true;
+            }
+            lastInscription = inscription;
+        }
+
+        return false;
     }
 
     /**

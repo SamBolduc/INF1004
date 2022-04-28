@@ -18,8 +18,10 @@ public class AnnulerInscription extends AbstractTask {
         System.out.println("Veuillez inscrire le sigle du cours : ");
         String sigle = scanner.nextLine();
 
-        boolean trouve = TableauPrincipal.getInstance().desinscrire(codePerm, sigle);
+        boolean trouve = TableauPrincipal.getInstance().desinscrire(sigle, codePerm);
         if (!trouve)
             System.err.println("Il n'a pas été possible supprimer une inscription pour l'étudiant et le sigle donné.");
+
+        System.out.println("L'annulation de l'inscription a bien été fait!");
     }
 }

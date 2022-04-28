@@ -19,8 +19,10 @@ public class InscrireEtudiant extends AbstractTask {
         System.out.println("Veuillez inscrire le sigle du cours : ");
         String sigle = scanner.nextLine();
 
-        boolean trouve = TableauPrincipal.getInstance().inscrire(codePerm, sigle);
+        boolean trouve = TableauPrincipal.getInstance().inscrire(sigle, codePerm);
         if (!trouve)
             System.err.println("Il n'a pas été possible de créer une inscription pour l'étudiant et le sigle donné.");
+
+        System.out.println("L'inscription a bien été fait!");
     }
 }

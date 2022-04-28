@@ -9,6 +9,7 @@ import secretariat.exception.BadInstanciationException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 
 public class Etudiant {
@@ -116,7 +117,7 @@ public class Etudiant {
         if (other == this) return true;
 
         Etudiant etudiant = (Etudiant) other;
-        return this.getCodePermanent().equals(etudiant.getCodePermanent());
+        return this.getCodePermanent().equalsIgnoreCase(etudiant.getCodePermanent()) && this.getNom().equalsIgnoreCase(etudiant.getNom()) && this.getPrenom().equalsIgnoreCase(etudiant.getPrenom()) && this.getNoProgramme() == etudiant.getNoProgramme() && this.getCredits() == etudiant.getCredits();
     }
 
     @Override
@@ -124,4 +125,7 @@ public class Etudiant {
         return Objects.hash(this.codePermanent);
     }
 
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
+    }
 }
